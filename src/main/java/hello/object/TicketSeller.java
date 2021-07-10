@@ -8,6 +8,6 @@ public class TicketSeller {
     }
 
     public void sellTo(Audience audience){
-        this.ticketOffice.plusAmount(audience.buy(ticketOffice.getTickets()));
+        this.ticketOffice.sellTicketTo(audience);
     }
 }

@@ -13,15 +13,16 @@ public class TicketOffice {
         this.tickets.addAll(Arrays.asList(tickets));
     }
 
-    public Ticket getTickets() {
+    private Ticket getTickets() {
         return tickets.remove(0);
     }
 
-    public void plusAmount(Long amount){
+    private void plusAmount(Long amount){
         this.amount+=amount;
     }
 
-    public void minusAmount(Long amount){
-        this.amount-=amount;
+    public void sellTicketTo(Audience audience){
+        this.plusAmount(audience.buy(this.getTickets()));
+        //audience에 대한 의존성이 추가됨. 자율성을 얻는 대신 결합도가 높아짐
     }
 }
